@@ -3,6 +3,7 @@ import numpy as np
 import glob
 import sys
 from batchnorm import ConvolutionalBatchNormalizer
+from matplotlib import pyplot as plt
 
 filenames = sorted(glob.glob("./images/*/*.jpg"))
 
