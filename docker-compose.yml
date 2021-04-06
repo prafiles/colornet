@@ -7,7 +7,8 @@ services:
     stdin_open: true
     working_dir: '/colornet'
     tty: true
-    image: tensorflow/tensorflow:0.8.0
+    # image: tensorflow/tensorflow:0.8.0
+    image: tensorflow/tensorflow:0.8.0-devel-gpu
     # environment:
     #   test: ""
     volumes:
