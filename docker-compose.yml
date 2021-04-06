@@ -9,6 +9,7 @@ services:
     tty: true
     # image: tensorflow/tensorflow:0.8.0
     image: tensorflow/tensorflow:0.8.0-devel-gpu
+    runtime: nvidia
     # environment:
     #   test: ""
     volumes:
