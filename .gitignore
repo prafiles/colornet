@@ -1,0 +1,5 @@
+*.pyc #compiled files
+tb_log/* #tensorboard logs
+images/ #dataset
+vgg/ #model
+*.xz #Ignoring Archives

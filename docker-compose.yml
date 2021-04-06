@@ -1,0 +1,17 @@
+version: '3'
+services:
+  colornet:
+    container_name: colornet
+    restart: unless-stopped
+    command: "/bin/bash"
+    stdin_open: true
+    working_dir: '/colornet'
+    tty: true
+    image: tensorflow/tensorflow:0.8.0
+    # environment:
+    #   test: ""
+    volumes:
+      - ./:/colornet
+    # ports:
+    #   - "8888:8888"
+

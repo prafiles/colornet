@@ -2,11 +2,11 @@ import tensorflow as tf
 import numpy as np
 import glob
 import sys
-from matplotlib import pyplot as plt
 from batchnorm import ConvolutionalBatchNormalizer
 
-filenames = sorted(glob.glob("../colornet/*/*.jpg"))
-batch_size = 1
+filenames = sorted(glob.glob("./images/*/*.jpg"))
+
+batch_size = 2
 num_epochs = 1e+9
 
 global_step = tf.Variable(0, name='global_step', trainable=False)
@@ -218,7 +218,7 @@ elif uv == 2:
 else:
     loss = (tf.split(3, 2, loss)[0] + tf.split(3, 2, loss)[1]) / 2
 
-if phase_train:
+if phase_train is not None:
     optimizer = tf.train.GradientDescentOptimizer(0.0001)
     opt = optimizer.minimize(
         loss, global_step=global_step, gate_gradients=optimizer.GATE_NONE)
@@ -248,7 +248,7 @@ sess = tf.Session()
 sess.run(init_op)
 
 merged = tf.merge_all_summaries()
-writer = tf.train.SummaryWriter("tb_log", sess.graph_def)
+writer = tf.train.SummaryWriter("tb_log", sess.graph)
 
 # Start input enqueue threads.
 coord = tf.train.Coordinator()
